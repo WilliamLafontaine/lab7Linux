@@ -1,0 +1,4 @@
+rspect:
+    stage: test
+    script:
+    - unittest

@@ -1,0 +1,52 @@
+#William Lafontaine
+#test unitaire de la class pile (stack)
+#2 Avril 2018
+import unittest
+
+from pile import Pile #from FILE import CLASS
+
+class PileTest(unittest.TestCase):
+    def test_pile_commence_vide(self):
+        pile = Pile()
+        self.assertEqual(pile.isEmpty(), True)
+
+    def test_push_items(self):
+        pile = Pile()
+        pile.push(1)
+        pile.push(2)
+        self.assertEqual([1, 2], pile.items)
+
+    def test_push_pop(self):
+        pile = Pile()
+        pile.push(1)
+        pile.push(2)
+        self.assertEqual(2, pile.pop())
+
+    def test_push_pop_size(self):
+        pile = Pile()
+        pile.push(1)
+        pile.push(2)
+        pile.pop()
+        self.assertEqual(1, pile.size())
+
+    def test_peek_push(self):
+        pile = Pile()
+        pile.push(1)
+        self.assertEqual(1, pile.peek())
+
+    def test_pop_empty(self):
+        pile = Pile()
+        self.assertRaises(IndexError, pile.pop)
+
+    def test_peek_empty(self):
+        pile = Pile()
+        self.assertRaises(IndexError, pile.peek)
+
+    def test_push_isEmpty(self):
+        pile = Pile()
+        pile.push(1)
+        pile.push(2)
+        self.assertEqual(False, pile.isEmpty())
+
+if __name__ == '__main__':
+    unittest.main()
